@@ -1,0 +1,25 @@
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pytest_cache/
+.mypy_cache/
+.coverage
+htmlcov/
+
+# Data (keep only tiny golden samples in git)
+data/bronze/
+data/silver/
+data/gold/
+!etl/tests/data/
+
+# Streamlit cache
+.streamlit/
+
+# OS/editor
+.DS_Store
+*.swp
+.idea/
+.vscode/

@@ -1,0 +1,7 @@
+site_name: Global Tax Policy & Revenue Explorer
+theme:
+  name: material
+nav:
+  - Home: index.md
+  - ADRs:
+      - "ADR-001: Initial Scope & DuckDB": docs/adr/ADR-001.md
