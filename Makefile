@@ -25,7 +25,7 @@ etl:
 	$(PYTHON) etl/gold/build_metrics.py
 
 test:
-	$(PYTHON) -m pytest -q
+	PYTHONPATH=. $(PYTHON) -m pytest -q
 
 ui:
 	.venv/bin/streamlit run ui/app.py

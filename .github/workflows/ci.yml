@@ -21,4 +21,4 @@ jobs:
           pre-commit run --all-files
       - name: Tests
         run: |
-          pytest -q
+          PYTHONPATH=$PWD python -m pytest -q
