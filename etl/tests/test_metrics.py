@@ -16,10 +16,9 @@ def test_metrics_from_small_df() -> None:
     )
     t2g = build_tax_to_gdp(df)
     assert set(t2g.columns) == {"country", "iso3", "year", "tax_to_gdp"}
-    assert float(t2g.loc[t2g["year"] == 2000, "tax_to_gdp"]) == 15.0
+    assert float(t2g.loc[t2g["year"] == 2000, "tax_to_gdp"].iloc[0]) == 15.0
 
     comp = build_composition(df)
     assert set(comp.columns) == {"country", "iso3", "year", "tax_type", "share_pct"}
-    # shares sum ~ 100 each year
     sums = comp.groupby("year")["share_pct"].sum().round(3)
     assert (sums == 100.0).all()
