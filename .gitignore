@@ -23,3 +23,17 @@ data/gold/
 *.swp
 .idea/
 .vscode/
+# local env & caches
+.venv/
+__pycache__/
+.pytest_cache/
+.ruff_cache/
+
+# data & generated
+data/
+etl/debug/
+backups/
+
+# review bundles & archives
+review_bundle_*/
+*.tar.gz

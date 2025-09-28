@@ -5,6 +5,14 @@ import streamlit as st
 
 st.set_page_config(page_title="Global Tax Policy & Revenue Explorer", layout="wide")
 st.title("Global Tax Policy & Revenue Explorer — MVP")
+st.caption(
+    "Source: OECD Revenue Statistics (SDMX). Last updated: "
+    + __import__("datetime")
+    .datetime.fromtimestamp(
+        __import__("pathlib").Path("data/gold/tax_to_gdp.parquet").stat().st_mtime
+    )
+    .strftime("%Y-%m-%d %H:%M:%S")
+)
 
 gold_dir = pathlib.Path("data/gold")
 t2g_pq = gold_dir / "tax_to_gdp.parquet"
@@ -37,6 +45,6 @@ with right:
     st.subheader("Composition (share of total tax, %)")
     csel = comp[(comp["country"] == country) & (comp["year"] == year)]
     if not csel.empty:
-        st.bar_chart(csel.set_index("tax_type")["share_pct"])
+        st.bar_chart(csel.set_index("tax_code")["share_pct"])
     else:
         st.info("No composition data for selection.")

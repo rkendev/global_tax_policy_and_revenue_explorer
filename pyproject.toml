@@ -4,13 +4,17 @@ version = "0.1.0"
 requires-python = ">=3.10"
 description = "MVP for global tax policy & revenue explorer"
 readme = "README.md"
-license = {text = "MIT"}
+license = { text = "MIT" }
 
 [tool.ruff]
 line-length = 100
-select = ["E","F","I","UP","B"]
-ignore = ["E203"]  # compatible with black on slices
 target-version = "py310"
+force-exclude = true
+extend-exclude = ["review_bundle_*", "data", ".venv", ".ruff_cache", ".pytest_cache", "backups"]
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
+ignore = ["E203"]  # black-compatible slicing
 
 [tool.black]
 line-length = 100
