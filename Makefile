@@ -50,3 +50,7 @@ fmt:
 
 clean:
 	rm -rf .venv __pycache__ */__pycache__ .pytest_cache htmlcov
+
+.PHONY: compare-golden
+compare-golden:
+	$(PYTHON) scripts/make_compare_golden.py
