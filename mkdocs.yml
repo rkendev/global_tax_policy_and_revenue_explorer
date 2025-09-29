@@ -1,7 +1,16 @@
 site_name: Global Tax Policy & Revenue Explorer
 theme:
   name: material
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets:
+      base_path: docs
+
 nav:
   - Home: index.md
+  - Changelog: changelog.md
   - ADRs:
-      - "ADR-001: Initial Scope & DuckDB": docs/adr/ADR-001.md
+      - "ADR-001: Initial Scope & DuckDB": adr/ADR-001.md
