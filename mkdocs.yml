@@ -1,16 +1,32 @@
 site_name: Global Tax Policy & Revenue Explorer
+site_url: https://rkendev.github.io/global_tax_policy_and_revenue_explorer/
+repo_url: https://github.com/rkendev/global_tax_policy_and_revenue_explorer
+repo_name: rkendev/global_tax_policy_and_revenue_explorer
+
 theme:
   name: material
+  features:
+    - navigation.instant           # faster page transitions
+    - navigation.tracking          # updates hash on scroll
+    - content.code.copy            # copy buttons on code blocks
+    - content.action.edit          # “Edit this page” when repo_url/edit_uri set
+    - navigation.footer            # prev/next footer
+  # optional color tweak
+  palette:
+    - scheme: default
+      primary: indigo
+      accent: pink
 
-markdown_extensions:
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.snippets:
-      base_path: docs
+# IMPORTANT: When you define `plugins`, defaults are not implied.
+# Re-enable search and explicitly add sitemap + last-updated plugin.
+plugins:
+  - search
+  - sitemap
+  - git-revision-date-localized:
+      fallback_to_build_date: true
 
 nav:
   - Home: index.md
   - Changelog: changelog.md
   - ADRs:
-      - "ADR-001: Initial Scope & DuckDB": adr/ADR-001.md
+      - "ADR-001: Initial Scope & DuckDB": docs/adr/ADR-001.md
