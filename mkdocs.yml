@@ -26,4 +26,4 @@ nav:
   - Home: index.md
   - Changelog: changelog.md
   - ADRs:
-      - "ADR-001: Initial Scope & DuckDB": docs/adr/ADR-001.md
+      - "ADR-001: Initial Scope & DuckDB": adr/ADR-001.md
