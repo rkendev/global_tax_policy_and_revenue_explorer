@@ -1,4 +1,4 @@
-name: Docs
+name: docs
 
 on:
   push:
@@ -10,21 +10,40 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write   # needed for gh-deploy to push gh-pages
+  contents: write   # allow push to gh-pages
+
+concurrency:
+  group: docs-gh-pages
+  cancel-in-progress: true
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v4
-        with: { fetch-depth: 0 }
 
-      - uses: actions/setup-python@v5
+    steps:
+      - name: Checkout (full history for revision dates)
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+          cache: pip
 
-      - name: Install MkDocs + Material
-        run: pip install mkdocs-material
+      - name: Install MkDocs + plugins
+        run: |
+          python -m pip install --upgrade pip
+          pip install mkdocs-material mkdocs-git-revision-date-localized-plugin
+
+      - name: Build (strict)
+        run: mkdocs build --strict
 
       - name: Deploy to gh-pages
+        env:
+          GIT_AUTHOR_NAME: github-actions[bot]
+          GIT_AUTHOR_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
+          GIT_COMMITTER_NAME: github-actions[bot]
+          GIT_COMMITTER_EMAIL: 41898282+github-actions[bot]@users.noreply.github.com
         run: mkdocs gh-deploy --force
