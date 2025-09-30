@@ -6,22 +6,19 @@ repo_name: rkendev/global_tax_policy_and_revenue_explorer
 theme:
   name: material
   features:
-    - navigation.instant           # faster page transitions
-    - navigation.tracking          # updates hash on scroll
-    - content.code.copy            # copy buttons on code blocks
-    - content.action.edit          # “Edit this page” when repo_url/edit_uri set
-    - navigation.footer            # prev/next footer
-  # optional color tweak
+    - navigation.instant
+    - navigation.tracking
+    - content.code.copy
+    - content.action.edit
+    - navigation.footer
   palette:
     - scheme: default
       primary: indigo
       accent: pink
 
-# IMPORTANT: When you define `plugins`, defaults are not implied.
-# Re-enable search and explicitly add sitemap + last-updated plugin.
+# When 'plugins' is defined, defaults aren't implied; keep 'search'
 plugins:
   - search
-  - sitemap
   - git-revision-date-localized:
       fallback_to_build_date: true
 

@@ -9,7 +9,6 @@ jobs:
   build-test:
     runs-on: ubuntu-latest
     env:
-      # Sample scope used in local dev; adjust if you change countries/years
       OECD_COUNTRIES: NLD+DEU+FRA+ITA+ESP
       OECD_START_YEAR: "2010"
 
@@ -22,8 +21,7 @@ jobs:
         with:
           python-version: "3.12"
           cache: pip
-          cache-dependency-path: requirements.txt  # speeds pip installs
-      # Docs: setup-python + pip cache. :contentReference[oaicite:4]{index=4}
+          cache-dependency-path: requirements.txt
 
       - name: Install dependencies
         run: |
@@ -32,7 +30,6 @@ jobs:
 
       - name: Lint (pre-commit)
         run: pre-commit run --all-files
-      # Docs: pre-commit manual run. :contentReference[oaicite:5]{index=5}
 
       - name: Restore data cache (bronze/silver/gold)
         uses: actions/cache@v4
@@ -45,7 +42,6 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-oecd-${{ env.OECD_COUNTRIES }}-${{ env.OECD_START_YEAR }}-
             ${{ runner.os }}-oecd-
-      # Docs: cache key + restore-keys behavior. :contentReference[oaicite:6]{index=6}
 
       - name: Build gold (OECD sample)
         run: make etl
