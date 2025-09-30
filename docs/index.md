@@ -7,7 +7,7 @@ A small, production-lean project to explore **tax-to-GDP** and **tax composition
 ## Live links
 
 - **Streamlit app:** _add your URL here_
-- **Changelog:** [/changelog](changelog/)
+- **Changelog:** [/changelog](changelog.md)
 - **Repository:** https://github.com/rkendev/global_tax_policy_and_revenue_explorer
 
 ---

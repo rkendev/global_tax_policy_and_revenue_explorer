@@ -23,9 +23,12 @@ plugins:
 
 markdown_extensions:
   - pymdownx.snippets:
-      # Let includes reference files outside docs/ (your ../CHANGELOG.md)
-      base_path: .
-      check_paths: true
+      base_path: !relative $config_dir   # resolve includes from repo root
+      check_paths: true                  # keep safety checks on
+  - pymdownx.superfences
+  - pymdownx.highlight
+  - admonition
+  - attr_list
 
 nav:
   - Home: index.md
