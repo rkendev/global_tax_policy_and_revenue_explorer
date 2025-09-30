@@ -4,6 +4,12 @@ python3 -m venv .venv
 source .venv/bin/activate
 python -m pip install --upgrade pip
 
+## Status
+[![CI](https://github.com/rkendev/global_tax_policy_and_revenue_explorer/actions/workflows/ci.yml/badge.svg)](https://github.com/rkendev/global_tax_policy_and_revenue_explorer/actions/workflows/ci.yml)
+[![Nightly ETL](https://github.com/rkendev/global_tax_policy_and_revenue_explorer/actions/workflows/etl-nightly.yml/badge.svg)](https://github.com/rkendev/global_tax_policy_and_revenue_explorer/actions/workflows/etl-nightly.yml)
+[![Docs](https://img.shields.io/badge/docs-mkdocs--material-blue)](https://rkendev.github.io/global_tax_policy_and_revenue_explorer/)
+[![Release](https://img.shields.io/github/v/release/rkendev/global_tax_policy_and_revenue_explorer?sort=semver)](https://github.com/rkendev/global_tax_policy_and_revenue_explorer/releases)
+
 # 1) Install deps & git hooks
 pip install -r requirements.txt
 pre-commit install
