@@ -16,11 +16,16 @@ theme:
       primary: indigo
       accent: pink
 
-# When 'plugins' is defined, defaults aren't implied; keep 'search'
 plugins:
   - search
   - git-revision-date-localized:
       fallback_to_build_date: true
+
+markdown_extensions:
+  - pymdownx.snippets:
+      # Let includes reference files outside docs/ (your ../CHANGELOG.md)
+      base_path: .
+      check_paths: true
 
 nav:
   - Home: index.md
